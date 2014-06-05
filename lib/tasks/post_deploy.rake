@@ -1,2 +1,11 @@
 desc 'Run all deployment rake tasks'
-task :post_deploy => ['deploy:migrate_db', 'deploy:precompile_assets', 'deploy:tell_newrelic', 'deploy:restart_app']
+task :post_deploy => [
+  'maintenance:start',
+  'deploy:chef_client',
+  'deploy:migrate_db',
+  'deploy:seed_db',
+  'deploy:precompile_assets',
+  'deploy:restart_app',
+  'deploy:tell_newrelic',
+  'maintenance:end'
+]
