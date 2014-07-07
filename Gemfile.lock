@@ -166,6 +166,8 @@ GEM
       method_source (~> 0.8)
       slop (~> 3.4)
     rack (1.5.2)
+    rack-accept (0.4.5)
+      rack (>= 0.4)
     rack-cas (0.8.1)
       addressable (>= 2.3)
       nokogiri
@@ -260,9 +262,9 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    turnout (0.3.0)
-      nokogiri (~> 1.3)
-      rack
+    turnout (2.0.0)
+      rack (~> 1.3)
+      rack-accept (~> 0.4)
     tzinfo (0.3.39)
     uglifier (2.3.0)
       execjs (>= 0.3.0)
