@@ -32,7 +32,6 @@ gem 'rack-cas'
 gem 'ransack'
 gem 'sidekiq'
 gem 'turnout'
-gem 'version'
 gem 'yaml_db'
 
 # Assets
