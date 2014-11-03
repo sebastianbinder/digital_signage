@@ -1,6 +1,6 @@
 source 'http://rubygems.org'
 
-gem 'rails', '4.0.10'
+gem 'rails', '4.0.11'
 
 gem 'action_links'
 gem 'active_model_serializers'
