@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
 
   def force_http
     if request.ssl? && (Rails.env.production? || Rails.env.staging?)
-      redirect_to params.merge(protocol: 'http://'), status: :moved_permanently
+      redirect_to url_for(params.merge(protocol: 'http://')), status: :moved_permanently
     end
   end
 
