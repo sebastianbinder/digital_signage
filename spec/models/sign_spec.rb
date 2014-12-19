@@ -1,6 +1,6 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe Sign do
+RSpec.describe Sign do
   it { should belong_to :department }
   it { should have_many(:slots).dependent(:destroy) }
   it { should have_many(:slides) }
@@ -30,22 +30,22 @@ describe Sign do
     context 'with email' do
       let(:email) { 'test@example.com' }
       context 'never checked in' do
-        it { should be_false }
+        it { should be false }
       end
       context 'checked in 1 minute ago' do
         let(:last_check_in) { 1.minute.ago }
-        it { should be_false }
+        it { should be false }
       end
       context 'checked in 2 days ago' do
         let(:last_check_in) { 2.days.ago }
-        it { should be_true }
+        it { should be true }
       end
     end
 
     context 'without email' do
       context 'checked in 2 days ago' do
         let(:last_check_in) { 2.days.ago }
-        it { should be_false }
+        it { should be false }
       end
     end
   end

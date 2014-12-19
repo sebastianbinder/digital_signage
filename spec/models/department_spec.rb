@@ -1,6 +1,6 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe Department do
+RSpec.describe Department do
   it { should have_many(:signs).dependent(:destroy) }
   it { should have_many(:slides).dependent(:destroy) }
   it { should have_many(:department_users).dependent(:destroy) }

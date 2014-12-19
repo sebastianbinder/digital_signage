@@ -1,6 +1,5 @@
 class SlideSerializer < ActiveModel::Serializer
-  attributes :id, :title, :interval, :color, :uri, :lastupdate, :showing
-  attribute :type, key: :content_type
+  attributes :id, :title, :interval, :color, :uri, :lastupdate, :showing, :content_type
 
   def color
     object.background_color
@@ -14,6 +13,10 @@ class SlideSerializer < ActiveModel::Serializer
 
   def showing
     object.showing?
+  end
+
+  def content_type
+    object.type
   end
 
 end
