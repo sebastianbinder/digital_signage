@@ -1,6 +1,6 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe Slide do
+RSpec.describe Slide do
   it { should belong_to :department }
   it { should have_many(:slots).dependent(:destroy) }
   it { should have_many(:schedules).dependent(:destroy) }

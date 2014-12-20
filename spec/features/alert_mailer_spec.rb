@@ -1,6 +1,6 @@
-require 'spec_helper'
+require 'rails_helper'
 
-describe AlertMailer do
+RSpec.describe AlertMailer do
   let(:last_check_in) { nil }
   let(:email_sent) { nil }
   let(:sign) { create :sign, :with_email, last_check_in: last_check_in, email_sent: email_sent }

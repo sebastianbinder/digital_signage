@@ -121,7 +121,7 @@ body.slides {
 
   .slide_status { position: absolute; top: 2px; left: 4px; z-index: 10 }
   .constraint { background-color: black; width: 100%; padding-top: 56.25%; }
-  .element { position: absolute; top: 0; bottom: 0; left: 0; right: 0; text-align: center;
+  .element { position: absolute; top: 0; bottom: 0; left: 0; right: 0; text-align: center; height: 100%; width: 100%;
 
     // For spacing vertically
     &:before { content: ''; display: inline-block; height: 100%; vertical-align: middle; }
