@@ -19,21 +19,15 @@
       }
       a { color: #0084B4; }
 
-      /* Header */
-      div#header { border-radius: 4px; padding: 20px; min-width: 200px; max-width: 1600px; margin: 20px auto; background-color: rgba(256, 256, 256, .8);}
-      div#header img { border: 3px white solid; border-radius: 4px; }
-      div#header div.user_name { font-size: 2em; }
-      div#header div.screen_name { font-size: 1.2em; }
-
       /* Tweet */
-      div#tweets { }
-      div.tweet { min-width: 200px; max-width: 1600px; padding: 20px; background-color: #fff; border: 1px #ccc solid; border-bottom: none; position: relative; text-align: left; margin: 0 auto; }
-      div.tweet:first-child { border-radius: 5px 5px 0 0; font-weight: bold; }
-      div.tweet:last-child { border-radius: 0 0 5px 5px; border: 1px #ccc solid; }
+      div#tweets { margin: 40px; }
+      div.tweet { min-width: 200px; padding: 20px; background-color: #fff; border: 1px #ccc solid; border-bottom: none; position: relative; text-align: left; margin: 0 auto; }
+      div.tweet:first-child { border-radius: 15px 15px 0 0; }
+      div.tweet:last-child { border-radius: 0 0 15px 15px; border: 1px #ccc solid; }
 
       div.tweet img { float: left; padding: 0 10px 5px 0; }
 
-      div.tweet div.message_wrap { position: relative; margin-left: 90px; }
+      div.tweet div.message_wrap { position: relative; margin-left: 90px; font-size: 120%; }
 
       div.tweet div.message_wrap div.time_ago { float: right; color: #999; }
 
@@ -50,9 +44,6 @@
     </style>
   </head>
   <body>
-
-    <div id="header">
-    </div>
 
     <div id="tweets">
 
@@ -84,7 +75,6 @@
               success : function(parsed_json) {
                 tweets = parsed_json;
                 buildTweets();
-                setupHeader();
                 if (user_themed) {
                   setupBackground();
                   changeLinkColor();
@@ -101,7 +91,7 @@
         function buildTweets() {
           if (tweets.length > 0) {
             // clear previous tweets
-            $('#tweets').html("<div class='tweet'>Tweets</div>");
+            $('#tweets').html("");
 
             $.each(tweets, function(i,tweet) {
               if (i < api_count) {  // ensure you are only returning the correct amount of tweets
@@ -162,15 +152,6 @@
           body_tag.style.backgroundColor = bg_color;
 
           if (bg_repeat) body_tag.style.backgroundRepeat = "repeat repeat";
-        }
-        function setupHeader() {
-          $('#header').html(
-            $("<img/>").attr('src', tweets[0].user.profile_image_url.replace("normal.", "bigger."))
-          ).append(
-            $("<div class='user_name'></div>").html(tweets[0].user.name)
-          ).append(
-            $("<div class='screen_name'></div>").html("@"+tweets[0].user.screen_name)
-          )
         }
 
         function changeLinkColor() {
