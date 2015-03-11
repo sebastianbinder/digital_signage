@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <!-- <link rel="stylesheet" href="../shared_assets/bootstrap/css/bootstrap.min.css"> -->
     <!-- <link rel="stylesheet" href="../shared_assets/fontawesome/css/font-awesome.min.css"> -->
-    
+
     <style>
       body { margin: 0; padding: 0; }
       #container {
@@ -13,14 +13,14 @@
         height: 700px;
         line-height: 700px;
       }
-      #container img { 
+      #container img {
         max-width: 100%;
         max-height: 100%;
         vertical-align: middle;
       }
       #container img.hidden { display: none; }
 
-    
+
     </style>
   </head>
   <body>
@@ -58,17 +58,22 @@
       var collection_id = url_query("collection_id");
 
       if (username && collection_id) {
-        var yql = 'http://query.yahooapis.com/v1/public/yql?q=' + encodeURIComponent('SELECT * FROM rss WHERE url="http://'+username+'.dropmark.com/'+collection_id+'.rss"') + '&format=json&callback=cbFunc';  
+        var yql = 'http://query.yahooapis.com/v1/public/yql?q=' + encodeURIComponent('SELECT * FROM rss WHERE url="http://'+username+'.dropmark.com/'+collection_id+'.rss"') + '&format=json&callback=cbFunc';
+
+        var url = 'http://api-cache.dev/dropmark/'+username+'/'+collection_id+ '?format=json&callback=cbFunc';
 
         $.ajax({
-          url : yql,
-          dataType : "jsonp"
+          url : url,
+          dataType : "jsonp",
+          success : function(data) {
+            cbFunc(data);
+          }
         });
       }
 
       // Gets called when the data loads from yahooapis
       function cbFunc(data) {
-        dropmark_items = data.query.results.item;
+        dropmark_items = data.items;
         $.each(dropmark_items, function(i,item) {
           buildImage(item);
         });
@@ -76,9 +81,9 @@
       }
 
       function buildImage(image) {
-        if (image.enclosure && image.enclosure.type.match(/image/)) {  // Make sure it is really an image
+        if (image.mime.match(/image/)) {  // Make sure it is really an image
           $('#container').append(
-            $("<img />").attr('src', image.enclosure.url)
+            $("<img />").attr('src', image.content)
           );
         }
       }
