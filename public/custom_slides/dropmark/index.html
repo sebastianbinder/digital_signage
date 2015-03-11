@@ -58,9 +58,7 @@
       var collection_id = url_query("collection_id");
 
       if (username && collection_id) {
-        var yql = 'http://query.yahooapis.com/v1/public/yql?q=' + encodeURIComponent('SELECT * FROM rss WHERE url="http://'+username+'.dropmark.com/'+collection_id+'.rss"') + '&format=json&callback=cbFunc';
-
-        var url = 'http://api-cache.dev/dropmark/'+username+'/'+collection_id+ '?format=json&callback=cbFunc';
+        var url = 'http://api.biola.edu/cache/dropmark/'+username+'/'+collection_id+ '?format=json&callback=cbFunc';
 
         $.ajax({
           url : url,
