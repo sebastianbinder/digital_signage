@@ -10,6 +10,8 @@ email:
     username: user@example.com
     password: '****************'
 
+sentry:
+  url: # Set this in settings.local.yml
 
 redis:
   url: "redis://localhost:6379/0"
