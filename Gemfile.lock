@@ -36,12 +36,6 @@ GEM
     binding_of_caller (0.7.2)
       debug_inspector (>= 0.0.1)
     biola_deploy (0.7.1)
-    blazing (0.4.1)
-      activesupport
-      grit
-      i18n
-      logging
-      thor
     bourbon (3.1.8)
       sass (>= 3.2.0)
       thor
@@ -92,9 +86,6 @@ GEM
     font-awesome-rails (4.0.1.0)
       railties (>= 3.2, < 5.0)
     formatador (0.2.5)
-    grit (2.0.0)
-      diff-lcs (>= 1.1.2)
-      mime-types (>= 1.15)
     guard (2.12.5)
       formatador (>= 0.2.4)
       listen (~> 2.7)
@@ -136,10 +127,6 @@ GEM
       celluloid (~> 0.16.0)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
-    little-plugger (1.1.3)
-    logging (1.8.2)
-      little-plugger (>= 1.1.3)
-      multi_json (>= 1.8.4)
     lumberjack (1.0.9)
     mail (2.6.3)
       mime-types (>= 1.16, < 3)
@@ -171,6 +158,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.8.1)
       slop (~> 3.4)
+    puma (2.13.4)
     rack (1.5.5)
     rack-accept (0.4.5)
       rack (>= 0.4)
@@ -296,7 +284,6 @@ DEPENDENCIES
   better_errors
   binding_of_caller
   biola_deploy
-  blazing
   bourbon
   capybara
   carrierwave (~> 0.7.1)
@@ -327,6 +314,7 @@ DEPENDENCIES
   port-a-query
   pretender
   pry
+  puma
   rack-cas
   rack-ssl
   rails (= 4.0.13)
@@ -347,3 +335,6 @@ DEPENDENCIES
   turnout
   uglifier
   yaml_db
+
+BUNDLED WITH
+   1.10.6
