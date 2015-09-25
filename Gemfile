@@ -6,6 +6,7 @@ gem 'action_links'
 gem 'active_model_serializers'
 gem 'addressable'
 gem 'biola_deploy'
+gem 'blazing'
 gem 'carrierwave', '~> 0.7.1' # Test actual display page (on site with relative_url_root) before updating that the image links aren't broken
 gem 'chronic'
 gem 'chronic_ping', '>= 0.3.1'

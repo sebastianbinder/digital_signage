@@ -1,0 +1,6 @@
+target :'ruby3a.prod', 'johnd0@ruby3a.prod.biola.edu:/srv/rack/signage', rails_env: 'production'
+target :'ruby3b.prod', 'johnd0@ruby3b.prod.biola.edu:/srv/rack/signage', rails_env: 'production'
+
+env_scripts '/etc/profile'
+
+rake :post_deploy, 'RAILS_RELATIVE_URL_ROOT=/signage'

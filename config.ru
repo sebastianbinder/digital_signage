@@ -1,6 +1,6 @@
 # This file is used by Rack-based servers to start the application.
 
 require ::File.expand_path('../config/environment',  __FILE__)
-map Settings.app.relative_url_root do
+map ENV['PUMA_RELATIVE_URL_ROOT'] || '/' do
   run SignManager::Application
 end
