@@ -5,7 +5,10 @@
 *.cache
 *.log
 *.pid
-config/*.yml
+config/settings.local.yml
+config/database.yml
+config/newrelic.yml
+config/daemons.yml
 db/data.yml
 db/schema.rb
 db/*.sqlite3
